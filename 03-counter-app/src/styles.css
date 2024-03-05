@@ -1,0 +1,37 @@
+html,body{
+    background-color: #21232A;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    padding: 70px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: #af2828;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border-radius: 10px;
+  }
+  
+  /* Estilos cuando el cursor está sobre el botón */
+  .boton:hover {
+    background-color: #666;
+    color: #fff;
+    border-color: #666;
+  }
+  
+  /* Estilos cuando el botón está presionado */
+  .boton:active {
+    background-color: #444;
+    color: #fff;
+    border-color: #444;
+  }
