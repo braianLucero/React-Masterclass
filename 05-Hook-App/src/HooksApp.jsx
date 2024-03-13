@@ -1,5 +1,6 @@
 import React from "react";
-import { Memorize } from "./06-memos/Memorize";
+import { MemoHook } from "./06-memos/MemoHook ";
+// import { Memorize } from "./06-memos/Memorize";
 // import { FocusScreen } from "./04-useRef/FocusScreen";
 // import { MultipleCustomHooks } from "./03-examples/MultipleCustomHooks";
 // import { FormWithCustomHook } from "./02-useEffect/FormWithCustomHook";
@@ -8,5 +9,5 @@ import { Memorize } from "./06-memos/Memorize";
 // import { CounterWithCustomHooks } from "./01-useState/CounterWithCustomHooks";
 
 export const HooksApp = () => {
-  return <Memorize />;
+  return <MemoHook />;
 };
