@@ -1,5 +1,6 @@
 import React from "react";
-import { FocusScreen } from "./04-useRef/FocusScreen";
+import { Memorize } from "./06-memos/Memorize";
+// import { FocusScreen } from "./04-useRef/FocusScreen";
 // import { MultipleCustomHooks } from "./03-examples/MultipleCustomHooks";
 // import { FormWithCustomHook } from "./02-useEffect/FormWithCustomHook";
 // import { SimpleForm } from "./02-useEffect/SimpleForm";
@@ -7,5 +8,5 @@ import { FocusScreen } from "./04-useRef/FocusScreen";
 // import { CounterWithCustomHooks } from "./01-useState/CounterWithCustomHooks";
 
 export const HooksApp = () => {
-  return <FocusScreen />;
+  return <Memorize />;
 };
