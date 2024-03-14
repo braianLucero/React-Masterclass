@@ -8,7 +8,7 @@ import { Padre } from "./07-tarea-memo (1)/07-tarea-memo/Padre";
 // import { SimpleForm } from "./02-useEffect/SimpleForm";
 // import { CounterApp } from "./01-useState/CounterApp";
 // import { CounterWithCustomHooks } from "./01-useState/CounterWithCustomHooks";
-
+import "./08-useReducer/intro-reducer";
 export const HooksApp = () => {
   return <Padre />;
 };
