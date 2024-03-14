@@ -1,5 +1,6 @@
 import React from "react";
-import { MemoHook } from "./06-memos/MemoHook ";
+import { CallbackHook } from "./06-memos/CallbackHook";
+// import { MemoHook } from "./06-memos/MemoHook ";
 // import { Memorize } from "./06-memos/Memorize";
 // import { FocusScreen } from "./04-useRef/FocusScreen";
 // import { MultipleCustomHooks } from "./03-examples/MultipleCustomHooks";
@@ -9,5 +10,5 @@ import { MemoHook } from "./06-memos/MemoHook ";
 // import { CounterWithCustomHooks } from "./01-useState/CounterWithCustomHooks";
 
 export const HooksApp = () => {
-  return <MemoHook />;
+  return <CallbackHook />;
 };
