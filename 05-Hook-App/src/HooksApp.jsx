@@ -1,5 +1,5 @@
-import React from "react";
-import { CallbackHook } from "./06-memos/CallbackHook";
+import { Padre } from "./07-tarea-memo (1)/07-tarea-memo/Padre";
+// import { CallbackHook } from "./06-memos/CallbackHook";
 // import { MemoHook } from "./06-memos/MemoHook ";
 // import { Memorize } from "./06-memos/Memorize";
 // import { FocusScreen } from "./04-useRef/FocusScreen";
@@ -10,5 +10,5 @@ import { CallbackHook } from "./06-memos/CallbackHook";
 // import { CounterWithCustomHooks } from "./01-useState/CounterWithCustomHooks";
 
 export const HooksApp = () => {
-  return <CallbackHook />;
+  return <Padre />;
 };
