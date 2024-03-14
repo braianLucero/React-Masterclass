@@ -1,32 +1,31 @@
-const inicialState = [
+const initialState = [
   {
     id: 1,
-    todo: "recolectar la piedra del alma ",
+    todo: "braian esta recolectando experiencia ",
     done: false,
   },
 ];
 
-const todoReducer = (state = inicialState, action = {}) => {
-  if (action.type === "[TODO] add Todo") {
+const todoReducer = (state = initialState, action = {}) => {
+  if (action.type === "[TODO] add todo") {
     return [...state, action.payload];
   }
-
   return state;
 };
 
 let todos = todoReducer();
 
-const newTodo = {
+const newReducer = {
   id: 2,
-  todo: "recolectar la piedra del poder ",
+  todo: "Agregando una experiencia en mi vida ",
   done: false,
 };
 
-const addTodoAction = {
-  type: "[TODO] add Todo",
-  payload: newTodo,
+const miReducerAction = {
+  type: "[TODO] add todo",
+  payload: newReducer,
 };
 
-todos = todoReducer(todos, addTodoAction);
+todos = todoReducer(todos, miReducerAction);
 
-console.log({ state: todos });
+console.log(todos);
