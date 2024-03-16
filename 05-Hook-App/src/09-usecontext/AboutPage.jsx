@@ -3,7 +3,7 @@ import React from "react";
 export const AboutPage = () => {
   return (
     <>
-      <h1>MainApp </h1>
+      <h1>AboutPage </h1>
       <hr />
     </>
   );
