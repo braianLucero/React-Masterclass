@@ -1,6 +1,6 @@
 import { TodoList } from "./components/TodoList";
 import { TodoAdd } from "./components/TodoAdd";
-import { useTodos } from "../hooks/useTodos";
+import { useTodos } from "../hooks";
 
 export const TodoApp = () => {
   const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo } =
@@ -9,7 +9,8 @@ export const TodoApp = () => {
   return (
     <>
       <h1>
-        TodoApp: 10, <small>pendientes:2</small>
+        TodoApp: {todos.length},{" "}
+        <small>pendientes:{todos.filter((todos) => !todos.done).length}</small>
       </h1>
       <hr />
       <div className="row">
