@@ -18,7 +18,11 @@ export const TodoApp = () => {
   const [todos, dispatch] = useReducer(todoReducer, inicialState);
 
   const handleNewTodo = (todo) => {
-    console.log({ todo });
+    const action = {
+      type: "[Todo] add todo",
+      payload: todo,
+    };
+    dispatch(action);
   };
   // TAREA : crear componentes y desarrollar bien sus elementos
   return (
