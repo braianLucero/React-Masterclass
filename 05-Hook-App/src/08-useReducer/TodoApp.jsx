@@ -1,21 +1,23 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 import { TodoList } from "./components/TodoList";
 import { TodoAdd } from "./components/TodoAdd";
 const inicialState = [
-  {
-    id: new Date().getTime(),
-    description: "recolectar la piedra del alma ",
-    done: false,
-  },
-  {
-    id: new Date().getTime() * 3,
-    description: "recolectar la piedra del tiempo ",
-    done: false,
-  },
+  // {
+  //   id: new Date().getTime(),
+  //   description: "recolectar la piedra del alma ",
+  //   done: false,
+  // },
 ];
+const init = () => {
+  return JSON.parse(localStorage.getItem("todos")) || [];
+};
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, inicialState);
+  const [todos, dispatch] = useReducer(todoReducer, inicialState, init);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const handleNewTodo = (todo) => {
     const action = {
@@ -24,7 +26,7 @@ export const TodoApp = () => {
     };
     dispatch(action);
   };
-  // TAREA : crear componentes y desarrollar bien sus elementos
+
   return (
     <>
       <h1>
