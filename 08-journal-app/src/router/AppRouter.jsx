@@ -9,7 +9,6 @@ export const AppRouter = () => {
       <Route path="/auth/*" element={<AuthRoutes />} />
       {/* Joural App*/}
       <Route path="/*" element={<JournalRoutes />} />
-      <Route />
     </Routes>
   );
 };
