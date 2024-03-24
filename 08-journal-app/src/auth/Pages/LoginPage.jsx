@@ -1,4 +1,4 @@
-import { Grid, TextField, Typography } from "@mui/material";
+import { Button, Grid, TextField, Typography } from "@mui/material";
 export const LoginPage = () => {
   return (
     <Grid
@@ -37,6 +37,11 @@ export const LoginPage = () => {
                 placeholder="Contrasenia"
                 fullWidth
               />
+            </Grid>
+            <Grid container spacing={2} sx={{ mb: 2 }}>
+              <Grid item>
+                <Button>Login</Button>
+              </Grid>
             </Grid>
           </Grid>
         </form>
