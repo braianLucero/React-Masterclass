@@ -17,7 +17,10 @@ export const SideBar = ({ draweWidth = 240 }) => {
   return (
     <Box
       component="nav"
-      sx={{ width: { sm: draweWidth }, flexShrink: { sm: 0 } }}
+      sx={{
+        width: { sm: draweWidth },
+        flexShrink: { sm: 0 },
+      }}
     >
       <Drawer
         variant="permanent"
