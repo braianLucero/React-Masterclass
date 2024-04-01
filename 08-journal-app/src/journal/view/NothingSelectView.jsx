@@ -10,7 +10,7 @@ export const NothingSelectView = () => {
       alignItems="center"
       justifyContent="center"
       sx={{
-        minHeight: "calc(100vh - 110px)",
+        minHeight: "calc(97vh - 54px)",
         backgroundColor: "primary.main",
         padding: 4,
         borderRadius: 3,
