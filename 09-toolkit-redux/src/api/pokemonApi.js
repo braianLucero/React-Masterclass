@@ -1,4 +1,4 @@
 import axios from "axios";
-export const pokemoApi = axios.create({
+export const pokemonApi = axios.create({
   baseURL: " https://pokeapi.co/api/v2",
 });
