@@ -12,7 +12,9 @@ export const authSlice = createSlice({
   reducers: {
     login: (state, actions) => {},
     logout: (statem, payload) => {},
-    chekingCredentials: (state) => {},
+    chekingCredentials: (state) => {
+      state.status = "checking";
+    },
   },
 });
 
