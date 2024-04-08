@@ -1,16 +1,19 @@
 import { singInWithGoogle } from "../../firebase/provider";
-import { chekingCredentials } from "./authSlice";
+import { checkingCredentials, login, logout } from "./";
 
-export const chekingAuthentication = (email, password) => {
+export const checkingAuthentication = (email, password) => {
   return async (dispatch) => {
-    dispatch(chekingCredentials());
+    dispatch(checkingCredentials());
   };
 };
 
-export const startGoogleSingIn = () => {
+export const startGoogleSignIn = () => {
   return async (dispatch) => {
-    dispatch(chekingCredentials());
+    dispatch(checkingCredentials());
 
-    const result = singInWithGoogle();
+    const result = await singInWithGoogle(); // Necesitas esperar la promesa de signInWithGoogle
+    if (!result.ok) return dispatch(logout(result.errorMessage));
+
+    dispatch(login(result));
   };
 };

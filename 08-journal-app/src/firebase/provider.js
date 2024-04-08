@@ -6,7 +6,6 @@ const googleProvider = new GoogleAuthProvider();
 export const singInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(FirebaseAuth, googleProvider);
-    // const credential = GoogleAuthProvider.credentialFromResult(result);
     const { displayName, email, photoURL, uid } = result.user;
     return {
       ok: true,
@@ -19,6 +18,7 @@ export const singInWithGoogle = async () => {
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
+
     return {
       ok: false,
       errorMessage,
