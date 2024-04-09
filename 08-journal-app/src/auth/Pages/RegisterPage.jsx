@@ -1,8 +1,10 @@
 import { Link as RouterLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
+import { startCreatingWithEmailPassword } from "../../store/auth";
 
 const formDate = {
   email: "",
@@ -20,6 +22,8 @@ const formValidations = {
 };
 
 export const RegisterPage = () => {
+  const dispatch = useDispatch();
+
   const [formSubmitted, setFormSubmitted] = useState();
 
   const {
@@ -34,13 +38,13 @@ export const RegisterPage = () => {
     passwordValid,
   } = useForm(formDate, formValidations);
 
-  console.log(displayNameValid);
-
   const onSubmit = (event) => {
     event.preventDefault();
     setFormSubmitted(true);
-    console.log(formState);
+    if (!isFormValid) return;
+    dispatch(startCreatingWithEmailPassword(formState));
   };
+
   return (
     <AuthLayout title="Crear cuenta">
       <form onSubmit={onSubmit}>
