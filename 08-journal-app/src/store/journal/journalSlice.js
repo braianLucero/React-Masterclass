@@ -2,14 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 export const journalSlice = createSlice({
   name: "journal",
   initialState: {
-    isSaving: true,
+    isSaving: false,
     messageSaved: "",
     notes: [],
     activeNote: null,
   },
   reducers: {
-    addNewEmtyNote: (state, action) => {},
-    setActiveNote: (state, action) => {},
+    savingNewNote: (state) => {
+      state.isSaving = true;
+    },
+    addNewEmtyNote: (state, action) => {
+      state.notes.push(action.payload);
+      state.isSaving = false;
+    },
+    setActiveNote: (state, action) => {
+      state.activeNote = action.payload;
+    },
     setNotes: (state, action) => {},
     setSaving: (state) => {},
     updateNote: (state, action) => {},
@@ -25,4 +33,5 @@ export const {
   setSaving, // esta action es para cuando estoy grabando las notas
   updateNote, // esta action es para actualizar una nota
   deleteNodeById, // esta action es para eliminarla de nuestro listado
+  savingNewNote,
 } = journalSlice.actions;
