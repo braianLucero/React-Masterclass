@@ -7,6 +7,7 @@ import {
 } from "../../firebase/providers";
 import { checkingCredentials, logout, login } from "./";
 import { FirebaseApp, FirebaseDB } from "../../firebase/config";
+import { setSaving, updateNote } from "../journal/journalSlice";
 
 export const checkingAuthentication = () => {
   return async (dispatch) => {
@@ -66,6 +67,8 @@ export const startLogout = () => {
 
 export const startSaveNote = () => {
   return async (dispatch, getState) => {
+    dispatch(setSaving());
+
     const { uid } = getState().auth;
     const { activeNote } = getState().journal;
     const noteToFireStore = {
@@ -74,5 +77,7 @@ export const startSaveNote = () => {
     delete noteToFireStore.id;
     const docRef = doc(FirebaseDB, `${uid}/journal/notas/${activeNote.id}`);
     await setDoc(docRef, noteToFireStore, { merge: true });
+
+    dispatch(updateNote(activeNote));
   };
 };
