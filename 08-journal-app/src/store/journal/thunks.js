@@ -1,13 +1,18 @@
 import { collection, doc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
-import { addNewEmtyNote, savingNewNote, setActiveNote } from "./journalSlice";
+import {
+  addNewEmtyNote,
+  savingNewNote,
+  setActiveNote,
+  setNotes,
+} from "./journalSlice";
+import { loadNotes } from "../../helpers/loadNotes";
 
 export const inicioDeNuevoNota = () => {
   return async (dispatch, getState) => {
     // uid , para saber yo como quiero almacenar mi informacion en mi base de datos
     dispatch(savingNewNote());
     const { uid } = getState().auth;
-
     const nuevaNota = {
       title: "",
       body: "",
@@ -21,5 +26,14 @@ export const inicioDeNuevoNota = () => {
 
     dispatch(addNewEmtyNote(nuevaNota));
     dispatch(setActiveNote(nuevaNota));
+  };
+};
+
+export const inicioCargaNotas = () => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    if (!uid) throw new Error("uid no existe ");
+    const notes = await loadNotes(uid);
+    dispatch(setNotes(notes));
   };
 };
