@@ -17,12 +17,14 @@ export const journalSlice = createSlice({
     },
     setActiveNote: (state, action) => {
       state.activeNote = action.payload;
+      state.messageSaved = "";
     },
     setNotes: (state, action) => {
       state.notes = action.payload;
     },
     setSaving: (state) => {
       state.isSaving = true;
+      state.messageSaved = "";
       //Todo : mensaje de error
     },
     updateNote: (state, action) => {
@@ -33,7 +35,7 @@ export const journalSlice = createSlice({
         }
         return note;
       });
-      // mostrar mensaje de actualizacion
+      state.messageSaved = `${action.payload.title},actualizada correctamente `;
     },
     deleteNodeById: (state, action) => {},
   },
