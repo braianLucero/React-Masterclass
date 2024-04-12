@@ -16,6 +16,7 @@ export const inicioDeNuevoNota = () => {
     const nuevaNota = {
       title: "",
       body: "",
+      imageUrls: [],
       date: new Date().getTime(),
     };
     // ============================================== // es el uid del usuario autenticado
