@@ -52,7 +52,10 @@ export const journalSlice = createSlice({
       state.activeNote = null;
     },
 
-    deleteNodeById: (state, action) => {},
+    deleteNotById: (state, action) => {
+      state.activeNote = null;
+      state.notes = state.notes.filter((note) => note.id !== action.payload);
+    },
   },
 });
 
@@ -63,7 +66,7 @@ export const {
   setNotes, // es para cargar las notas , cuando la tengo leidas de algun lugar
   setSaving, // esta action es para cuando estoy grabando las notas
   updateNote, // esta action es para actualizar una nota
-  deleteNodeById, // esta action es para eliminarla de nuestro listado
+  deleteNotById, // esta action es para eliminarla de nuestro listado
   savingNewNote,
   setPhotosToActiveNote,
   clearNotesLogout,

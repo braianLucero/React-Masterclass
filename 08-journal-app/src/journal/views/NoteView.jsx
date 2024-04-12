@@ -1,27 +1,29 @@
-import { SaveOutlined, UploadOutlined } from "@mui/icons-material";
 import {
-  Button,
-  Grid,
-  IconButton,
-  TextField,
-  Typography,
-  darken,
-} from "@mui/material";
+  DeleteOutline,
+  SaveOutlined,
+  UploadOutlined,
+} from "@mui/icons-material";
+import { Button, Grid, IconButton, TextField, Typography } from "@mui/material";
 import { ImageGallery } from "../components";
 import { useForm } from "../../hooks/useForm";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { startSaveNote, startUpLoadingFiles } from "../../store/auth";
+import {
+  startDeletingNote,
+  startSaveNote,
+  startUpLoadingFiles,
+} from "../../store/auth";
 import { useEffect, useMemo, useRef } from "react";
 import { setActiveNote } from "../../store/journal/journalSlice";
+
 export const NoteView = () => {
   const dispatch = useDispatch();
   const { activeNote, messageSaved, isSaving } = useSelector(
     (state) => state.journal
   );
-  const { body, title, date, onInputChange, formState } = useForm(activeNote);
+  const { title, date, onInputChange, formState } = useForm(activeNote);
   const dateString = useMemo(() => {
     const newDate = new Date(date);
     return newDate.toUTCString();
@@ -48,6 +50,9 @@ export const NoteView = () => {
     dispatch(startUpLoadingFiles(target.files));
   };
 
+  const onDelete = () => {
+    dispatch(startDeletingNote());
+  };
   return (
     <Grid
       container
@@ -111,6 +116,13 @@ export const NoteView = () => {
           placeholder="¿Qué sucedió en el día de hoy?"
           minRows={5}
         />
+      </Grid>
+
+      <Grid container justifyContent="end">
+        <Button onClick={onDelete} sx={{ mt: 2 }} color="error">
+          <DeleteOutline />
+          Borrar
+        </Button>
       </Grid>
 
       {/* Image gallery */}

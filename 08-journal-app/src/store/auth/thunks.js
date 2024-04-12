@@ -1,4 +1,4 @@
-import { doc, setDoc } from "firebase/firestore/lite";
+import { deleteDoc, doc, setDoc } from "firebase/firestore/lite";
 import {
   loginWithEmailPassword,
   registerUserWithEmailPassword,
@@ -9,6 +9,7 @@ import { checkingCredentials, logout, login } from "./";
 import { FirebaseApp, FirebaseDB } from "../../firebase/config";
 import {
   clearNotesLogout,
+  deleteNotById,
   setPhotosToActiveNote,
   setSaving,
   updateNote,
@@ -101,5 +102,16 @@ export const startUpLoadingFiles = (files = []) => {
     const photosUrls = await Promise.all(fileUpLoadPromise);
 
     dispatch(setPhotosToActiveNote(photosUrls));
+  };
+};
+
+export const startDeletingNote = () => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const { activeNote } = getState().journal;
+    const docRef = doc(FirebaseDB, `${uid}/journal/notas/${activeNote.id}`);
+    await deleteDoc(docRef);
+
+    dispatch(deleteNotById(activeNote.id));
   };
 };
