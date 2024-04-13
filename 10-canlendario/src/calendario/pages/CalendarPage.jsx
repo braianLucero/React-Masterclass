@@ -17,7 +17,25 @@ const event = [
     },
   },
 ];
+
+const onDoubleClick = (event) => {
+  console.log({ doubleClick: event });
+};
+
+const onSelect = (event) => {
+  console.log({ click: event });
+};
+
+const onViewchanged = (event) => {
+  localStorage.setItem("lastView", event);
+  setLastView(event);
+};
+
 export const CalendarPage = () => {
+  const [lastView, setLastView] = useState(
+    localStorage.getItem("lastView") || "week"
+  );
+
   const eventStyleGetter = (event, start, end, isSelected) => {
     const style = {
       backgroundColor: "#347CF7",
@@ -38,6 +56,7 @@ export const CalendarPage = () => {
         culture="es"
         localizer={localizer}
         events={event}
+        defaultView={lastView}
         startAccessor="start"
         endAccessor="end"
         style={{ height: "calc(100vh - 80px)" }}
@@ -46,6 +65,9 @@ export const CalendarPage = () => {
         components={{
           event: CalendarEvent,
         }}
+        onDoubleClickEvent={onDoubleClick}
+        onSelectEvent={onSelect}
+        onView={onViewchanged}
       />
     </>
   );
