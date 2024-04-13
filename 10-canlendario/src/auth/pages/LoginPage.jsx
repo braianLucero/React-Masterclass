@@ -1,4 +1,3 @@
-import React from "react";
 import "./LoginPage.css";
 
 export const LoginPage = () => {
@@ -22,7 +21,7 @@ export const LoginPage = () => {
                 placeholder="Contraseña"
               />
             </div>
-            <div className="d-grid  gap-2">
+            <div className="d-grid gap-2">
               <input type="submit" className="btnSubmit" value="Login" />
             </div>
           </form>
