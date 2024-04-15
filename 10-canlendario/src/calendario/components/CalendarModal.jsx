@@ -24,7 +24,7 @@ Modal.setAppElement("#root");
 export const CalendarModal = () => {
   const { isDateModalOpen, closeDateModal } = useUiStore();
 
-  const [isOpen, setIsOpen] = useState(true);
+  // const [isOpen, setIsOpen] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formValues, setFormValues] = useState({
     title: "Braian",
