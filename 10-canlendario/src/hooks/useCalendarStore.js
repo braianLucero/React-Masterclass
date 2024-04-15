@@ -8,6 +8,7 @@ export const useCalendarStore = () => {
   const setActiveEvent = (calendarEvent) => {
     dispatch(onSetActiveEvent(calendarEvent));
   };
+
   return {
     //propertis
     events,

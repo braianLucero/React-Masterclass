@@ -29,8 +29,8 @@ export const CalendarModal = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [formValues, setFormValues] = useState({
-    title: "Braian",
-    note: "Lucero",
+    title: "",
+    note: "",
     start: new Date(),
     end: addHours(new Date(), 2),
   });
